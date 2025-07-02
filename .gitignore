@@ -1,0 +1,44 @@
+# Raw audio files (too large for git)
+raw_audio/
+*.wav
+*.mp3
+*.m4a
+*.mp4
+*.vtt
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+venv/
+env/
+
+# Jupyter notebooks checkpoints
+.ipynb_checkpoints/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Model checkpoints and large files
+*.pth
+*.bin
+*.pkl
+checkpoints*/
+
+# Custom voice clone scripts (keep local only)
+chatterbox-demo/voice_clone_*.py
+!chatterbox-demo/voice_clone_template.py
+chatterbox-demo/*_cloned_voice.wav
+
+# Processing intermediate files and training data
+processing_steps/
+training_data/

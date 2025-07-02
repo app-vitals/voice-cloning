@@ -1,0 +1,12 @@
+# Voice Cloning Project - Essential Dependencies
+# Install with: pip install -r requirements.txt
+
+# Core voice cloning
+chatterbox-tts
+torchaudio
+
+# Optional: for downloading YouTube content
+# yt-dlp
+
+# Note: Optional system dependencies:
+# - ffmpeg (for audio format conversion if needed): brew install ffmpeg / apt install ffmpeg
