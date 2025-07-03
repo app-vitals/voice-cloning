@@ -167,9 +167,76 @@ python chatterbox-demo/voice_clone_template.py --help
 | Poor voice quality | Use more/better training audio, ensure single speaker |
 | Unsupported audio format | Install ffmpeg or convert to WAV/MP3 |
 
+## LiveKit Voice Cloning Demo
+
+This project also includes a real-time voice cloning demo using LiveKit and Resemble AI.
+
+### Quick Start - LiveKit Demo
+
+1. **Setup backend:**
+   ```bash
+   cd backend
+   uv sync
+   cp .env.example .env
+   # Configure your API keys in .env
+   ```
+
+2. **Setup frontend:**
+   ```bash
+   cd frontend
+   npm install
+   ```
+
+3. **Run the demo:**
+   ```bash
+   # Terminal 1 - Start API server
+   cd backend && python main.py api
+
+   # Terminal 2 - Start voice agent
+   cd backend && python main.py agent dev
+
+   # Terminal 3 - Start frontend
+   cd frontend && npm run dev
+   ```
+
+4. **Try it:** Open http://localhost:5173 and have a voice conversation!
+
+### Custom Characters
+
+Create custom character files for different personalities:
+
+1. **Create character files:**
+   ```bash
+   backend/prompts/your_character_instructions.md
+   backend/prompts/your_character_intro.md
+   ```
+
+2. **Use them by setting environment variables:**
+   ```bash
+   # Option 1: Export environment variables
+   export VOICE_INSTRUCTIONS_FILE=prompts/your_character_instructions.md
+   export VOICE_INTRO_FILE=prompts/your_character_intro.md
+   python main.py agent dev
+
+   # Option 2: Add to your .env file
+   echo "VOICE_INSTRUCTIONS_FILE=prompts/your_character_instructions.md" >> .env
+   echo "VOICE_INTRO_FILE=prompts/your_character_intro.md" >> .env
+   python main.py agent dev
+   ```
+
+### Required API Keys
+
+Configure these in `backend/.env`:
+- **LiveKit** - For real-time audio communication
+- **Resemble AI** - For voice cloning (needs voice UUID)
+- **OpenAI** - For AI conversation
+- **Deepgram** - For speech-to-text
+- **Langfuse** - For observability (optional)
+
 ## Contributing
 
 This is a template project. Add your own:
 - Training audio files to `raw_audio/`
 - Processed training data to `training_data/`
 - Custom voice clone scripts to `chatterbox-demo/`
+- Custom character prompts to `backend/prompts/` (ignored by git)
